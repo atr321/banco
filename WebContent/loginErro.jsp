@@ -1,16 +1,21 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="model.Cliente" %>
+
+<% Cliente c = (Cliente)request.getAttribute("cliente"); %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-<meta charset="ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Banco TOPZERA</title>
 </head>
 <body>
-<div class="container-fluid">
-<h1>Banco TOPZERA</h1>
-</div>
-<h2>Loga ae manolo</h2>
+<div class="alert alert-danger" role="alert"><h1>DEU RUIM MERMAO</h1></div>
 
+<h3>Loga dnv CACHORRO</h3>
 
 <form action="login">
   <div class="form-group">
@@ -24,7 +29,5 @@
   </div>
   <button type="submit" class="btn btn-primary">Acessar</button>
 </form>
-
-
 </body>
 </html>

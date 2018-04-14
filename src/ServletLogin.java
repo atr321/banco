@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,8 +39,8 @@ public class ServletLogin extends HttpServlet {
 		String senhaCliente = request.getParameter("senhacliente");
 		
 		//obter o objeto de retorno
-		PrintWriter out = response.getWriter();
-		out.println("<head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\"></head><body>");
+		//PrintWriter out = response.getWriter();
+		//out.println("<head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\"></head><body>");
 		
 		//Obter uma conexao com o BD
 		Connection conexao = Conexao.getConexao();
@@ -51,11 +52,28 @@ public class ServletLogin extends HttpServlet {
 		if(cd.isCliente(cpfCliente, senhaCliente)) {
 			//obter cliente
 			Cliente c = cd.getCliente(cpfCliente, senhaCliente);
-			out.println("<div class=\"alert alert-primary\" role=\"alert\">\r\n" + 
-					"  Oi "+ c.getNomeCliente() +"\r\n" + 
-					"</div>");
+			
+			//criar um atributo novo
+			request.setAttribute("cliente", c);
+			
+			//Repassar o request/response para o JSP
+			RequestDispatcher rd = request.getRequestDispatcher("detalheCliente.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+			//out.println("<div class=\"alert alert-primary\" role=\"alert\"> Oi "+ c.getNomeCliente() +"</div>");
 		}else {
-			out.println("Cliente invalido!");
+			
+			RequestDispatcher rd = request.getRequestDispatcher("loginErro.jsp");
+			
+			rd.forward(request, response);
+			
+			
+			
+			
+			//out.println("Cliente invalido!");
 		}
 		
 	}
