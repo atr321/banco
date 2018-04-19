@@ -19,6 +19,7 @@
 
 <div class="jumbotron">
   <h1 class="display-4">EAE, <%= c.getNomeCliente() %>!</h1>
+  <p class="lead">Contas:</p>
   <h4>CPF:<%= c.getCpfCliente() %></h4>
   <h4>Contas:<h4>
   <table>

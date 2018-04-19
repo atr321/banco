@@ -57,7 +57,7 @@ public class ContaDAO {
 	public ArrayList<Conta> getConta(int idCliente) {
 		
 		String query = "SELECT idconta, idcliente, numeroconta, agenciaconta, tipoconta FROM conta WHERE idcliente = ?";
-		ArrayList<Conta> resultado = new ArrayList<>();
+		ArrayList<Conta> contas = new ArrayList<>();
 		
 				PreparedStatement ps= null;
 				ResultSet rs = null;
@@ -71,7 +71,7 @@ public class ContaDAO {
 					rs = ps.executeQuery();
 
 					while(rs.next()) {
-					resultado.add (new Conta(rs.getInt("idconta"), rs.getInt("idcliente"), rs.getString("numeroconta"), rs.getString("agenciaconta"), rs.getString("tipoconta")));
+					contas.add (new Conta(rs.getInt("idconta"), rs.getInt("idcliente"), rs.getString("numeroconta"), rs.getString("agenciaconta"), rs.getString("tipoconta")));
 					}
 					rs.close();
 					ps.close();
@@ -80,7 +80,7 @@ public class ContaDAO {
 					e.printStackTrace();
 				}
 				
-				return resultado;
+				return contas;
 		
 	
 

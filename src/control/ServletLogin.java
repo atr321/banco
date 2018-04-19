@@ -1,3 +1,4 @@
+package control;
 
 
 import java.io.IOException;
@@ -57,7 +58,7 @@ public class ServletLogin extends HttpServlet {
 			request.setAttribute("cliente", c);
 			
 			//Repassar o request/response para o JSP
-			RequestDispatcher rd = request.getRequestDispatcher("detalheCliente.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("DetalheCliente");
 			
 			rd.forward(request, response);
 			
