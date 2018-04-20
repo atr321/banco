@@ -5,7 +5,8 @@
 <%@ page import="model.Conta" %>
 <%@ page import="java.util.ArrayList" %>
 
-<% Cliente c = (Cliente)request.getAttribute("cliente"); %>
+<% Cliente c = (Cliente)request.getAttribute("conta"); %>
+<% Conta co = (Conta)request.getAttribute("conta"); %>
 <% ArrayList<Conta> contas = (ArrayList<Conta>)request.getAttribute("detalhes"); %>
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -25,7 +26,7 @@
   <table>
   <% for(int i = 0; i < contas.size(); i++){%>
 	  
-	  <tr><%=  "<a href=\"detalheConta\">" + contas.get(i).getNumeroConta() + "</a> "%></tr><br/>
+	  <tr><%= contas.get(i).getAgenciaConta() %></tr><br/>
 	  
  <% } %>
   </table>
