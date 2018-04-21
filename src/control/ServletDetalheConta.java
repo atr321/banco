@@ -42,7 +42,7 @@ public class ServletDetalheConta extends HttpServlet {
 		//out.println("<html><head><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css\" integrity=\"sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4\" crossorigin=\"anonymous\"></head><body>");
 
 		int id = Integer.parseInt(request.getParameter("idconta"));
-		String nomecliente = request.getParameter("nomecliente");
+		//String nomecliente = request.getParameter("nomecliente");
 		//String numeroconta = request.getParameter("numeroconta");
 		//String agenciaconta = request.getParameter("agenciaconta");
 		//String tipoconta = request.getParameter("tipoconta");
