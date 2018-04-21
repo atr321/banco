@@ -24,7 +24,7 @@
   <table>
   <% for(int i = 0; i < contas.size(); i++){%>
 	  
-	  <tr><%=  "<a href=\"detalheConta?id=\">" + contas.get(i).getNumeroConta() + &numeroConta="</a> "%></tr>
+	  <tr><a href="detalheConta?idconta=<%= contas.get(i).getIdConta()%>&numeroconta=<%= contas.get(i).getNumeroConta()%>&agenciaconta=<%= contas.get(i).getAgenciaConta()%>&tipoconta=<%= contas.get(i).getTipoConta() %>"><%= contas.get(i).getNumeroConta() %></a><br/></tr>
 	  
  <% } %>
   </table>

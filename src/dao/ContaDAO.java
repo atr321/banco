@@ -85,4 +85,37 @@ public class ContaDAO {
 	
 
 }
+	
+public Conta getdetalheConta(int idConta) {
+		
+		String query = "SELECT idconta, idcliente, numeroconta, agenciaconta, tipoconta FROM conta WHERE idcliente = ?";
+		//ArrayList<Conta> contas = new ArrayList<>();
+		
+				PreparedStatement ps= null;
+				ResultSet rs = null;
+				Conta c = null;
+
+				try {
+
+					ps = conexao.prepareStatement(query);
+
+					ps.setInt(1, idConta);
+
+					rs = ps.executeQuery();
+
+					if(rs.first()) {
+					c = new Conta(rs.getInt("idconta"), rs.getInt("idcliente"), rs.getString("numeroconta"), rs.getString("agenciaconta"), rs.getString("tipoconta"));
+					}
+					rs.close();
+					ps.close();
+					
+				}catch(SQLException e){
+					e.printStackTrace();
+				}
+				
+				return c;
+		
+	
+
+}
 }
